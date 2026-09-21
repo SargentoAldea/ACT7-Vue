@@ -37,4 +37,8 @@ En primer lugar se agrega un "return" en el if correspondiente a la hora de sele
 Actividad 7 - Correccion detalle recepcion
 
 De forma sencilla, aqui se presentan detalles como por ejemplo que la función agregar al inicio no funcionaba debido a que no creaba nuevos objetos, creo que ese sería uno de los errores principales o ciertos errores de typeo, pero el principal se arreglo colocando el "nuevoItem", adempas de colocar validaciones basicas.
-Si bien el id usaba un "Date.Now()" este fue reemplazado por un "state._seq.items++," para mejor consistencia y aprovechar lo creado anteriormente
+Si bien el id usaba un "Date.Now()" este fue reemplazado por un "state._seq.items++," para mejor consistencia y aprovechar lo creado anteriormente.
+
+Actividad 7 - Totales y calculos de recepcion
+
+En este caso lo que se hace en primera instancia en totalLibros es sumar en base a los items de cada recepción, es decir, se filtra, con ello se obtiene un total, por ejemplo, si el item 1 tiene 100 y el 2 200 el total debería de ser 300 siempre y cuando estos esten en la misma recepción, de manera similar el porcentajeProblemas trata con los items con el fin de registrar el total y luego los items que puedan ser problematicos, con ello es posible dividir y luego multiplicar por 100 para tener un porcentaje de items problematicos, a modo de ejemplo, si tenemos 10 items de una recepción de los cuales 5 estan marcados como mixto o dañado, el procentaje a marcar debería de ser 50% independientemente de la cantidad de libros que estos contengan dado que nos estamos refiriendo a los items como tal.

@@ -21,6 +21,28 @@ function guardar(){
 
 const lista = computed(() => state?.recepciones || [])
 
+function totalLibros(idRecepcion) {
+  return state.items
+    .filter(it => it.id_reception === idRecepcion)
+    .reduce((total, it) => total + Number(it.cantidad), 0)
+}
+
+function porcentajeProblemas(idRecepcion) {
+  const itemsRecepcion = state.items.filter(
+    it => it.id_reception === idRecepcion
+  )
+
+  if (itemsRecepcion.length === 0) {
+    return 0
+  }
+
+  const problematicos = itemsRecepcion.filter(
+    it => it.estado === 'dañado' || it.estado === 'mixto'
+  ).length
+
+  return (problematicos / itemsRecepcion.length) * 100
+}
+
 </script>
 
 <template>
@@ -49,8 +71,8 @@ const lista = computed(() => state?.recepciones || [])
           <td>{{ r.fecha }}</td>
           <td>{{ (state?.proveedores || []).find(p => p.id === r.id_proveedor)?.nombre || '—' }}</td>
           <td>{{ r.nro_guia }}</td>
-           <td>{{ 0 }}</td>              
-          <td>{{ NaN }}%</td>           
+           <td>{{ totalLibros(r.id) }}</td>
+           <td>{{ porcentajeProblemas(r.id).toFixed(2) }}%</td>        
           <td>
             <button @click="seleccion = r.id">Ver</button>
           </td>
