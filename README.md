@@ -29,3 +29,12 @@ En lo que a mi respecta, creo que el estado compartido entre componentes es impo
 Actividad 7 - Correccion gestion de libros
 
 Los detalles en esta parte son más que nada el uso de "&&" o "||" para el largo del isbn, el "id: Date.now" el cual fue cambiado a "state._seq.libros++"" de manera que queda consistente con el store, del mismo modo se cambia el "anio_publicacion" por simplemente "anio", y aunque si bien era posible ver "l.anio" y "l.anio_publicacion" gracias a "l.anio ?? l.anio_publicacion" simplemente se dejo en "l.anio"
+
+Actividad 7 - Correccion gestion de recepciones
+
+En primer lugar se agrega un "return" en el if correspondiente a la hora de seleccionar proveedor, de modo que no siga de "Largo", al igual que el caso anterior se cambia el "Date.now" por "state._seq.recepciones++, finalmente se añade .number a un v-model de modo que queda "v-model.number="form.id_proveedor" para mantener número en todo momento
+
+Actividad 7 - Correccion detalle recepcion
+
+De forma sencilla, aqui se presentan detalles como por ejemplo que la función agregar al inicio no funcionaba debido a que no creaba nuevos objetos, creo que ese sería uno de los errores principales o ciertos errores de typeo, pero el principal se arreglo colocando el "nuevoItem", adempas de colocar validaciones basicas.
+Si bien el id usaba un "Date.Now()" este fue reemplazado por un "state._seq.items++," para mejor consistencia y aprovechar lo creado anteriormente
