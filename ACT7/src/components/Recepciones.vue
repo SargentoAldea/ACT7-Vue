@@ -12,9 +12,9 @@ function guardar(){
   
   if(!form.value.id_proveedor){
     alert('Seleccione proveedor')
-   
+    return
   }
-  state.recepciones.push({ id: Date.now(), ...form.value })
+  state.recepciones.push({ id:state._seq.recepciones++, ...form.value })
   seleccion.value = state.recepciones[state.recepciones.length-1]?.id || null
   form.value = { fecha: '', nro_guia: '', id_proveedor: '' }
 }
@@ -30,7 +30,7 @@ const lista = computed(() => state?.recepciones || [])
     <form @submit.prevent="guardar">
       <input type="date" v-model="form.fecha" />
       <input v-model="form.nro_guia" placeholder="N° Guía/Factura" />
-      <select v-model="form.id_proveedor">
+      <select v-model.number="form.id_proveedor">
         <option value="">-- Proveedor --</option>
         <option v-for="p in state?.proveedores || []" :key="p.id" :value="p.id">{{ p.nombre }}</option>
       </select>
