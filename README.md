@@ -21,3 +21,7 @@ Posible causa: Similar al problema 2, en useRecepcionStore.js parece haber un "_
 Archivo:App.vue
 Posible causa: En general, como su nombre indica, simplemente son errores de typeo.
 
+Actividad 7 - Correccion estado compartido
+
+En este apartado se encontraron detalles que siendo honestos ya se encontraban marcados y que eran sencillos de reparar, como el cantidad '450', o el state comentado.
+En lo que a mi respecta, creo que el estado compartido entre componentes es importante a la hora de que los componentes trabajen sobre los mismos datos en lugar de que cada cual tenga una copia propia.
