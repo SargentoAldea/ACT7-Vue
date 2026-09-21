@@ -25,3 +25,7 @@ Actividad 7 - Correccion estado compartido
 
 En este apartado se encontraron detalles que siendo honestos ya se encontraban marcados y que eran sencillos de reparar, como el cantidad '450', o el state comentado.
 En lo que a mi respecta, creo que el estado compartido entre componentes es importante a la hora de que los componentes trabajen sobre los mismos datos en lugar de que cada cual tenga una copia propia.
+
+Actividad 7 - Correccion gestion de libros
+
+Los detalles en esta parte son más que nada el uso de "&&" o "||" para el largo del isbn, el "id: Date.now" el cual fue cambiado a "state._seq.libros++"" de manera que queda consistente con el store, del mismo modo se cambia el "anio_publicacion" por simplemente "anio", y aunque si bien era posible ver "l.anio" y "l.anio_publicacion" gracias a "l.anio ?? l.anio_publicacion" simplemente se dejo en "l.anio"
